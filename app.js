@@ -75,7 +75,7 @@ function searchByName(people) {
 
 function searchByTraits(people) {
 	const traitToSearchForString = prompt('Please enter the trait of the person you are searching for.');
-	const traitParameterToSearchFor = prompt('Please enter desired trait parameter.');
+	const traitParameterToSearchFor = prompt('Please enter desired trait  parameter.');
 
 	switch (traitToSearchForString) {
 		case 'gender':
