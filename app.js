@@ -1,7 +1,7 @@
 // PRO TIP: To quickly navigate to a function, right click on its name and select "Go to Definition"
 "strict script"
 function app(people) {
-	debugger;
+	//debugger;
 	displayWelcome();
 	runSearchAndMenu(people);
 	return exitOrRestart(people);
@@ -64,6 +64,8 @@ function searchByName(people) {
 		'Please enter the the last name of the person you are searching for.',
 	);
 	const fullNameSearchResults = people.filter(
+
+	
 		(person) =>
 			person.firstName.toLowerCase() === firstNameToSearchFor.toLowerCase() &&
 			person.lastName.toLowerCase() === lastNameToSearchFor.toLowerCase(),
@@ -74,11 +76,49 @@ function searchByName(people) {
 function searchByTraits(people) {
 	const traitToSearchForString = prompt('Please enter the trait of the person you are searching for.');
 	const traitParameterToSearchFor = prompt('Please enter desired trait parameter.');
-	const traitSearchResults = people.filter(
-		(trait) => 
-			trait.
-		
-	);
+
+	switch (traitToSearchForString) {
+		case 'gender':
+			let g = people.filter(
+				(trait) => trait.gender === traitParameterToSearchFor.toLowerCase()
+			);
+			traitSearchResults = g;			
+			break;		
+		case 'height' :
+			let h = people.filter(
+				(trait) => trait.height === parseInt(traitParameterToSearchFor)
+			 );
+			 traitSearchResults = h;
+			break;
+		case 'weight' :
+			let w = people.filter(
+				(trait) => trait.weight === parseInt(traitParameterToSearchFor)
+			);
+			traitSearchResults = w;
+			break;
+		case 'eyeColor' :
+			let ec = people.filter(
+				(trait) => trait.eyeColor === traitParameterToSearchFor.toLowerCase()
+			);
+			traitSearchResults = ec;
+			break;
+		case 'occupation' :
+			let o = people.filter(
+				(trait) => trait.occupation === traitParameterToSearchFor.toLowerCase()
+			);
+			traitSearchResults = o;
+			break;
+		default :
+			return searchPeopleDataSet(people);
+		}
+			return traitSearchResults;
+}
+
+function displayPersonInfo(person){
+	alert(person);
+
+
+	return (person);
 
 }
 
@@ -91,7 +131,7 @@ function mainMenu(person, people) {
 	switch (mainMenuUserActionChoice) {
 		case 'info':
 			//! TODO
-			// displayPersonInfo(person);
+			displayPersonInfo(person);
 			break;
 		case 'family':
 			//! TODO
