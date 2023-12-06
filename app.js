@@ -74,7 +74,7 @@ function searchByName(people) {
 }
 
 function searchByTraits(people) {
-	const traitToSearchForString = prompt('Please enter the trait of the person you are searching for.');
+	const traitToSearchForString = validatedPrompt('Please enter the trait of the person you are searching for.', ['gender', 'height', 'weight', 'eyeColor', 'occupation'],);
 	const traitParameterToSearchFor = prompt('Please enter desired trait parameter.');
 
 	switch (traitToSearchForString) {
@@ -96,7 +96,7 @@ function searchByTraits(people) {
 			);
 			traitSearchResults = w;
 			break;
-		case `eyeColor` :
+		case `eyecolor` :
 			let ec = people.filter(
 				(trait) => trait.eyeColor === traitParameterToSearchFor.toLowerCase()
 			);
