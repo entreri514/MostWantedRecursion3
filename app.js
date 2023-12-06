@@ -115,11 +115,9 @@ function searchByTraits(people) {
 }
 
 function displayPersonInfo(person){
-	alert(`${person.firstName} ${person.lastName}`);
+	alert(`First name: ${person.firstName}\n Last name: ${person.lastName}\n Gender: ${person.gender}\n DOB: ${person.dob}\n Height: ${person.height}\n Weight: ${person.weight}\n Eye color: ${person.eyeColor}\n Occupation: ${person.occupation}`);
 	
-	
-
-	return (person);
+	return true;
 
 }
 
