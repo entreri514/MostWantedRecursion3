@@ -138,7 +138,7 @@ function findPersonFamily(person, people){
 		} 
 	
 		if(person.parents[0] != null){
-			personSiblings = people.filter(people => people.parents[i] === person.parents[i]).map(people => people.firstName + ' ' + people.lastName);
+			personSiblings = people.filter(people => people.parents[0] === person.parents[0]).map(people => people.firstName + ' ' + people.lastName);
 			alert(`Sibling Name(s): ${personSiblings}\n`);
 			}
 		
