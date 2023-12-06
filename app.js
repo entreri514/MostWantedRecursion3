@@ -117,10 +117,35 @@ function searchByTraits(people) {
 function displayPersonInfo(person){
 	alert(`First name: ${person.firstName}\n Last name: ${person.lastName}\n Gender: ${person.gender}\n DOB: ${person.dob}\n Height: ${person.height}\n Weight: ${person.weight}\n Eye color: ${person.eyeColor}\n Occupation: ${person.occupation}`);
 	
-	return true;
-
+	return person;
 }
 
+function findPersonFamily(person, people){
+		let parentName;
+		let personFamily;
+		let spouseName;
+		let personSiblings;
+		if(person.currentSpouse != null){
+			spouseName = people.filter(people => people.id === person.currentSpouse).map(people => people.firstName + ` ` + people.lastName);
+			alert(`Spouse name: ${spouseName}\n`)
+		}
+		personFamily = spouseName;
+		for (i = 0; i < 2; i++){
+		if(person.parents[i] != null){
+			parentName = people.filter(people => people.id === person.parents[i]).map(people => people.firstName + ` ` + people.lastName);
+			alert(`Parent name: ${parentName}\n`);
+		}
+		} 
+	
+		if(person.parents[0] != null){
+			personSiblings = people.filter(people => people.parents[i] === person.parents[i]).map(people => people.firstName + ' ' + people.lastName);
+			alert(`Sibling Name(s): ${personSiblings}\n`);
+			}
+		
+		
+		
+	return personFamily;
+}
 function mainMenu(person, people) {
 	const mainMenuUserActionChoice = validatedPrompt(
 		`Person: ${person.firstName} ${person.lastName}\n\nDo you want to know their full information, family, or descendants?`,
@@ -134,7 +159,7 @@ function mainMenu(person, people) {
 			break;
 		case 'family':
 			//! TODO
-			// let personFamily = findPersonFamily(person, people);
+			findPersonFamily(person, people);
 			// displayPeople('Family', personFamily);
 			break;
 		case 'descendants':
