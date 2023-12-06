@@ -149,9 +149,9 @@ function findPersonFamily(person, people){
 
 function findPersonDescendants(person, people){
 
-	personDecendants = people.filter(people => people.parents[0] === person.id).map(people => people.firstName + " " +people.lastName);
+	personDescendants = people.filter(people => people.parents[0] === person.id).map(people => people.firstName + " " +people.lastName);
 
-
+	alert(`Decendants: ${personDescendants}`)
 
 
 	return personDescendants;
@@ -175,7 +175,7 @@ function mainMenu(person, people) {
 		case 'descendants':
 			//! TODO
 			let personDescendants = findPersonDescendants(person, people);
-			displayPeople('Descendants', personDescendants);
+			//displayPeople('Descendants', personDescendants);
 			break;
 		case 'quit':
 			return;
