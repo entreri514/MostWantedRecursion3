@@ -75,34 +75,34 @@ function searchByName(people) {
 
 function searchByTraits(people) {
 	const traitToSearchForString = prompt('Please enter the trait of the person you are searching for.');
-	const traitParameterToSearchFor = prompt('Please enter desired trait  parameter.');
+	const traitParameterToSearchFor = prompt('Please enter desired trait parameter.');
 
 	switch (traitToSearchForString) {
-		case 'gender':
+		case `gender`:
 			let g = people.filter(
 				(trait) => trait.gender === traitParameterToSearchFor.toLowerCase()
 			);
 			traitSearchResults = g;			
 			break;		
-		case 'height' :
+		case `height` :
 			let h = people.filter(
 				(trait) => trait.height === parseInt(traitParameterToSearchFor)
 			 );
 			 traitSearchResults = h;
 			break;
-		case 'weight' :
+		case `weight` :
 			let w = people.filter(
 				(trait) => trait.weight === parseInt(traitParameterToSearchFor)
 			);
 			traitSearchResults = w;
 			break;
-		case 'eyeColor' :
+		case `eyeColor` :
 			let ec = people.filter(
 				(trait) => trait.eyeColor === traitParameterToSearchFor.toLowerCase()
 			);
 			traitSearchResults = ec;
 			break;
-		case 'occupation' :
+		case `occupation` :
 			let o = people.filter(
 				(trait) => trait.occupation === traitParameterToSearchFor.toLowerCase()
 			);
@@ -110,13 +110,14 @@ function searchByTraits(people) {
 			break;
 		default :
 			return searchPeopleDataSet(people);
-		}
+		}			
 			return traitSearchResults;
 }
 
 function displayPersonInfo(person){
-	alert(person);
-
+	alert(`${person.firstName} ${person.lastName}`);
+	
+	
 
 	return (person);
 
