@@ -146,6 +146,16 @@ function findPersonFamily(person, people){
 		
 	return personFamily;
 }
+
+function findPersonDescendants(person, people){
+
+	personDecendants = people.filter(people => people.parents[0] === person.id).map(people => people.firstName + " " +people.lastName);
+
+
+
+
+	return personDescendants;
+}
 function mainMenu(person, people) {
 	const mainMenuUserActionChoice = validatedPrompt(
 		`Person: ${person.firstName} ${person.lastName}\n\nDo you want to know their full information, family, or descendants?`,
@@ -164,8 +174,8 @@ function mainMenu(person, people) {
 			break;
 		case 'descendants':
 			//! TODO
-			// let personDescendants = findPersonDescendants(person, people);
-			// displayPeople('Descendants', personDescendants);
+			let personDescendants = findPersonDescendants(person, people);
+			displayPeople('Descendants', personDescendants);
 			break;
 		case 'quit':
 			return;
